@@ -4,7 +4,7 @@ import java.util.HashSet;
 
 public class SensorSystem {
     public boolean on;
-    public HashMap<String, SensorGroup> sensor_groups = new HashMap<>();
+    public HashMap<String, SensorGroup> sensor_groups;
     public ArrayList<Sensor> sensors;
 
     public SensorSystem() {
@@ -43,7 +43,12 @@ public class SensorSystem {
         this.sensors.add(sensor);
     }
 
+    public ArrayList<Sensor> getSensors() {
+        return sensors;
+    }
+
     public static void main(String[] args) throws InterruptedException {
+        Menu menu = new Menu();
         SensorSystem sensorSystem = new SensorSystem();
         SensorGroup group1 = new SensorGroup(10);
         SmokeSensor smokeSensor = new SmokeSensor(10, 2022, group1.getId());
@@ -55,7 +60,9 @@ public class SensorSystem {
         sensorSystem.addSensor(smokeSensor2);
 
         sensorSystem.addSensorGroup(group1);
-        sensorSystem.run();
+        //sensorSystem.run();
+
+        menu.main(sensorSystem);
     }
 }
 

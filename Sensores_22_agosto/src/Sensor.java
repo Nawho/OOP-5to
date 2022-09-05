@@ -27,6 +27,12 @@ public abstract class Sensor {
     public abstract boolean check();
 
     public abstract void send_alarm();
+
+    @Override
+    public String toString() {
+        return "{ on: " + this.on + ", value: " + this.value + ", threshold: " + this.threshold +
+                ", yearBought: " + this.yearBought + ", groupId: " + this.group_id + " }";
+    }
 }
 
 /*
